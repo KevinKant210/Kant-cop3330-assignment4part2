@@ -1,0 +1,241 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class ListApp{
+    main()
+    start()
+}
+
+class Error{
+    //FXML CONTENT//
+    ErrorInfoText
+
+    setErrorDescription(ErrorDescription)
+}
+
+class ItemWindowController{
+    //FXML Components//
+    UserDescriptionText
+    UserDueDateText
+    UserIsCompletedText
+    DatePicker
+
+    //BACKEND VARS//
+    ToDoList parentList
+    Item currItem
+
+    EditDescriptionClicked()
+    EditDueDateClicked()
+    MarkItemCompleteClicked()
+}
+
+
+
+class ListWindowController{
+      //FXML CONTENT//
+
+      ChangeTitleButton
+      DisplayAllItemsButton
+      DisplayCompeteButton
+      DisplayIncompleteButton
+      DisplaySortedByDate()
+      NewItemButton
+     ListDeleteButton
+     ListSaveButton
+
+     TitleChangeInputTextField
+
+
+
+    //BACKEND VARS//
+
+    ToDoList currList
+
+
+    ChangeTitleBUttonClicked()
+    DisplayAllItemsClicked()
+    DisplayNon_CompleteItemsClicked()
+    DisplayCompletedItemsClicked()
+    NewItemButtonClicked()
+    DeleteItemClicked()
+    SaveThisListButtonClicked()
+}
+
+class LoadAllListsController{
+        //FXML CONTENT??
+        BrowseButton
+        LoadButton
+
+        FileLocationTextField
+
+        //BACKEND VARS//
+        UserPath
+       BrowseForLoadFile()
+       LoadAllListsButtonClicked()
+
+}
+
+class LoadSingleListController{
+        //FXML CONTENT//
+        ListNameInputTextField
+        ListLocationInputTextField
+
+        LoadListButton
+        BrowseButton
+
+//BACKEND VARS//
+        userPath
+
+
+        BrowsLoadSingleList()
+        LoadSingleListButtonClicked()
+        ListNameInputted()
+}
+
+class SaveListController{
+
+    //FXML CONTENT//
+
+     SaveButton
+     BrowseButton
+
+     FileLocationTextField
+     FileNameTextField
+
+    //BACKEND VARS//
+    UserPath
+    FileName
+
+    FileLocationEntered()
+    FileNameEntered()
+    BrowseForFile()
+    SubmitDataSaveButton()
+}
+
+class ListAppController {
+    //FXML CONTENT//
+     LoadAllListsButton
+     NewListButton
+     SaveAllButton
+     LoadSingleListButton
+
+
+
+    LoadLists()
+    CreateList()
+    SaveAllLists()
+    LoadSingleList()
+}
+
+
+class Item{
+    Description
+    Due Date
+    isCompleted
+
+    Item(Description, DueDate)
+
+    setDescription(newDescription)
+    setDue(newDueDate)
+    markComplete()
+
+    getDue()
+    getDescription()
+    getCompletion()
+
+    private changeStringToDate()
+
+
+}
+
+
+class ToDoList{
+    Title
+    ArrayList<Item> ItemHolder
+    //new thing
+    numItems
+
+    ToDoList(TitleName)
+
+    addItem(Description,DueDate)
+    deleteItem(Item)
+
+    displayItems()
+    displayIncompleteItems()
+    displayCompleteItems()
+
+    getTitle()
+    getItem(Item)
+
+    setTitle(newTitle)
+
+}
+
+ class ListHandler{
+    NumLists
+    ArrayList<TodoList> ListHolder
+
+    createList(TitleName)
+    deleteList(ToDoList)
+}
+
+
+class SaveFile{
+    FilePath
+    FileName
+    currList
+
+    SaveFile(String FilePath)
+
+    SaveList(ToDoList)
+    SaveAllLists(ListHolder,FileName)
+    createFile()
+
+    private generateFile()
+    private writeList(File)
+
+
+    setFilePath
+
+}
+
+class LoadFile{
+    FilePath
+    Reader
+
+    LoadFile(Stirng FilePath)
+
+    LoadList(inputfile,listTitle)
+    LoadAllLists(inputfile)
+
+
+
+    private findList(listTitle, inputfile)
+
+    private GenerateToDoList(parseFile)
+}
+
+javafx.Application <|-- ListApp
+
+ListApp -- ListAppController
+
+ListAppController - ListHandler
+
+ListAppController -- ListWindowController
+
+ListWindowController - SaveListController
+ListWindowController - LoadAllListsController
+ListWindowController - LoadSingleListController
+ListWindowController - ItemWindowController
+
+ListHandler - SaveFile
+ListHandler - LoadFile
+
+ListHandler -- ToDoList
+ToDoList -- Item
+
+
+
+@enduml

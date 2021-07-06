@@ -1,0 +1,150 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class ListWindowController{
+//FXML CONTENT//
+
+TitleText
+TableViewItemTable
+
+
+NewItemDescriptionTextField
+NewItemDatePicker
+
+AddNewItemButton
+DeleteItemButton
+ClearListButton
+SaveListButton
+DisplayAllItemsButton
+DisplayCompleteItemsButton
+DisplayIncompleteItemsButton
+
+//BACKEND VARS//
+
+ToDoList currList
+
+AddItemButtonClicked()
+
+ClearListButtonClicked()
+
+DeleteItemButtonClicked()
+
+SaveListButtonClicked()
+
+DisplayAllItemsButtonClicked()
+
+DisplayCompleteItemsButtonClicked()
+
+DisplayIncompleteItemsButtonClicked()
+
+
+}
+
+class ListApp{
+main()
+start()
+}
+
+
+class ListAppController{
+
+//FXML CONTENT//
+
+NewListButton
+LoadListButton
+
+
+
+NewListButtonClicked()
+
+LoadListButtonClicked()
+}
+
+class ToDoList{
+String listTitle
+
+ArrayList<Item> ItemHolder
+
+Integer numItems
+
+
+//Constructor// ToDoList(TitleName)
+
+addItem(Description,DueDate)
+
+deleteItem(Item)
+
+clearAllItems()
+
+displayAllItems()
+
+displayCompleteItems()
+
+displayIncompleteItems()
+
+
+}
+
+class Item{
+String Description
+
+Date DueDate
+
+Boolean isComplete
+
+//Constructor// Item(Description,DueDate)
+
+markComplete()
+
+setDescription()
+setDueDate()
+
+getDescription
+getDueDate()
+
+
+}
+
+class SaveFile{
+String FilePath
+
+String FileName
+
+//Constructor// SaveFile(FileName,FilePath)
+
+saveList(ArrayList <Items>)
+
+}
+
+class LoadFile{
+String FilePath
+
+//Constructor// LoadFile(FilePath)
+
+
+loadList()
+
+
+
+}
+
+
+
+javafx.Application <|-- ListApp
+
+ListApp -- ListAppController
+ListAppController - ListWindowController
+ListAppController -- LoadFile
+
+ListWindowController - ToDoList
+ListWindowController -- SaveFile
+
+ToDoList - Item
+
+
+
+
+
+@enduml
