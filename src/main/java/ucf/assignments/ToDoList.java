@@ -1,12 +1,7 @@
 package ucf.assignments;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
-
-import java.time.*;
 
 public class ToDoList {
     private String title;
@@ -33,6 +28,13 @@ public class ToDoList {
         //Add the newly constructed Item to itemholder arraylist
             //itemholder.add(newitem)
         itemHolder.add(newItem);
+    }
+
+    //overloading addItem to make loading files easier
+    public void addItem(Item item){
+
+        itemHolder.add(item);
+
     }
 
     public boolean deleteItem(Item currItem){
@@ -104,7 +106,7 @@ public class ToDoList {
 
     public void sortDate(){
 
-       Comparator dateCompare = (Comparator<Item>) (o1, o2) -> o1.getDue().compareTo(o2.getDue());
+       Comparator<Item> dateCompare = (Comparator<Item>) (o1, o2) -> o1.getDue().compareTo(o2.getDue());
 
        itemHolder.sort(dateCompare);
 

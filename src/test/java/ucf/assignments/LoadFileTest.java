@@ -1,73 +1,116 @@
 package ucf.assignments;
 
+import javafx.util.converter.LocalDateStringConverter;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoadFileTest {
 
     //create a test file with ListObjs ( preferrable with saveFile)
 
+    String filePath = "C:\\Users\\Kevin\\Desktop\\Git Projects\\Kant-cop3330-assignment4part2\\src\\test\\resources\\FileIOTestFolder\\testloaderdoc.txt";
+
     @Test
-    public void ensure_single_list_loaded(){
+    public void ensure_single_list_loaded_all_items(){
         //gui will call load list method in LoadFile Obj
 
         //create LoadFile obj and feed it testFile with testList
+        LoadFile loader = new LoadFile(filePath);
 
         //call LoadList method and test to see that it generated a list object properly
-
+        ToDoList newList = loader.LoadList();
         //AssertEquals(LoadFile.LoadList(TestFile,TestListTitle.Title, TestTitle)
 
+        assertEquals(5,newList.itemHolder.size());
     }
 
     @Test
-    public void ensure_single_list_loaded_from_many(){
-        //gui will call load list method in LoadFile Obj
+    public void ensure_single_list_loaded_all_items_with_proper_names(){
 
-        //create LoadFile obj and feed it testFile with testList
-            //this time ensure there are multiple lists in the test file IE ensure the method chooses the proper list out of many
+        //generate load file obj with file path
 
-        //call LoadList method and test to see that it generated a list object properly
+        LoadFile loader = new LoadFile(filePath);
 
-        //AssertEquals(LoadFile.LoadList(TestFile,TestListTitle.Title, TestTitle)
+        //generate temp to do list to hold result
+        ToDoList newList = loader.LoadList();
 
+        //loop through to check valid item conditions
+
+        String testDescription = "Test Description";
+
+        boolean isRight = true;
+        for(Item item : newList.itemHolder){
+            if (item.getDescription().compareTo(testDescription) != 0) {
+                isRight = false;
+                break;
+            }
+        }
+
+        //assertrue(conditionsmet)
+
+        assertTrue(isRight);
     }
 
     @Test
-    public void ensure_load_all_generates_all_lists(){
-        //gui will call loadall methold in loadfile obj
+    public void ensure_single_list_loaded_all_items_with_proper_dates(){
+        //generate load file obj with file path
 
-        //create a test file with ListObjs ( preferrable with saveFile)
+        LoadFile loader = new LoadFile(filePath);
 
-        //create test LoadFile obj TestObj
+        //generate temp to do list to hold result
+        ToDoList newList = loader.LoadList();
 
-        //feed it the file
+        //loop through to check valid item conditions
 
-        //method will return a arrayList of ListObjs
+        LocalDate testDate = new LocalDateStringConverter().fromString("01/02/2003");
 
-        //assertEquals(testObj.LoadAll(TestFile)).size, numListsInFile)
+        boolean isRight = true;
+
+
+        for(Item item : newList.itemHolder){
+            if (item.getDue().compareTo(testDate) != 0) {
+                isRight = false;
+                break;
+            }
+        }
+
+        //assertrue(conditionsmet)
+
+        assertTrue(isRight);
     }
 
     @Test
-    public void ensure_load_all_generates_all_lists_titles(){
-        //gui will call loadall methold in loadfile obj
+    public void ensure_single_list_loaded_all_items_with_proper_completion(){
+        //generate load file obj with file path
 
-        //create a test file with ListObjs ( preferrable with saveFile)
+        LoadFile loader = new LoadFile(filePath);
 
-        //create test LoadFile obj TestObj
+        //generate temp to do list to hold result
+        ToDoList newList = loader.LoadList();
 
-        //feed it the file
+        //loop through to check valid item conditions
 
-        //method will return a arrayList of ListObjs
-        // store it in testList
-        //correct = true
-        //for items in testList
+        boolean isRight = true;
+        for(Item item : newList.itemHolder){
+            if(item.getCompletion()){
+                isRight = false;
+            }
+        }
 
-            //if title != Testtitle
-            //correct = false
+        //assertrue(conditionsmet)
 
-        //we check to ensure all the titles were maintained
-        //asserttrue(correct)
-
+        assertTrue(isRight);
     }
+
+
+
+
+
+
+
+
 
 }

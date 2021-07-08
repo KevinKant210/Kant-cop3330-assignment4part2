@@ -1,8 +1,10 @@
 package ucf.assignments;
 
+import javax.swing.text.DateFormatter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class SaveFile {
@@ -16,7 +18,7 @@ public class SaveFile {
      private ToDoList currList;
 
      private final String nL = "\n";
-     private final String sB = " ";
+     private final String cB = ",";
 
 
 
@@ -48,6 +50,7 @@ public class SaveFile {
 
     private boolean writeList(){
 
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         FileWriter author;
 
         try {
@@ -57,7 +60,7 @@ public class SaveFile {
 
            for(Item item: currList.itemHolder){
 
-               author.write(item.getDescription() + sB + item.getDue().toString() + sB +  item.getCompletion() + nL);
+               author.write(item.getDescription() + cB + item.getDue().format(format) + cB +  item.getCompletion() + nL);
 
            }
 

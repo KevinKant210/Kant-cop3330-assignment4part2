@@ -3,10 +3,15 @@ package ucf.assignments;
 import javafx.util.converter.LocalDateStringConverter;
 import javafx.util.converter.LocalDateTimeStringConverter;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.FormatStyle;
 import java.util.Date;
 import java.time.*;
+import java.util.Formatter;
 
 public class Item {
 
@@ -31,6 +36,10 @@ public class Item {
         Description = UserDescription;
 
         dueDate = changeStringToDate(UserdueDate);
+
+
+
+
 
     }
 
@@ -93,7 +102,11 @@ public class Item {
 
     private LocalDate changeStringToDate(String dateString){
 
+
+
+
         LocalDateStringConverter date = new LocalDateStringConverter();
+
 
         return date.fromString(dateString);
     }
