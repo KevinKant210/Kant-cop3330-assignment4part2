@@ -2,22 +2,23 @@ package ucf.assignments;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+
+import java.time.*;
 
 public class ToDoList {
     private String title;
 
-    private ArrayList<Item> itemHolder;
+    public ArrayList<Item> itemHolder;
 
     {
         itemHolder = new ArrayList<>();
     }
 
 
-    private int numItems;
 
-    {
-        numItems = 0;
-    }
 
     public ToDoList(String userTitle){
         //set Title to user title
@@ -71,7 +72,7 @@ public class ToDoList {
         return completeItemHolder;
     }
 
-    public ArrayList<Item> displayIncompelteItems(){
+    public ArrayList<Item> displayIncompleteItems(){
         //generate temp arraylist
         ArrayList<Item> incompleteItemHolder = new ArrayList<>();
         //for (item in itemholder)
@@ -101,16 +102,21 @@ public class ToDoList {
         title = newTitle;
     }
 
-    public int getNumItems() {
-        //this was auto genned :)
-        return numItems;
+    public void sortDate(){
+
+       Comparator dateCompare = (Comparator<Item>) (o1, o2) -> o1.getDue().compareTo(o2.getDue());
+
+       itemHolder.sort(dateCompare);
+
+
+
     }
 
-    public void setNumItems(int numItems) {
-        //also auto genned
-       // this.numItems = numItems;
-        this.numItems = numItems;
-    }
+
+
+
+
+
 
 
 

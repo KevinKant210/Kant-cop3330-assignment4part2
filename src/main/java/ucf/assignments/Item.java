@@ -1,14 +1,20 @@
 package ucf.assignments;
 
+import javafx.util.converter.LocalDateStringConverter;
+import javafx.util.converter.LocalDateTimeStringConverter;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.time.*;
 
 public class Item {
 
      private String Description;
 
-     private Date dueDate;
+    // private Date dueDate;
+
+     private LocalDate dueDate;
 
 
      private boolean isComplete;
@@ -50,7 +56,7 @@ public class Item {
 
     }
 
-    Date getDue(){
+    LocalDate getDue(){
        //could not return a literal for a return type of date sorry
 
         return dueDate;
@@ -66,8 +72,8 @@ public class Item {
     }
 
 
-
-    private Date changeStringToDate(String dateString){
+        /*
+    private Date hangeStringToDate(String dateString){
         //take string and put it in date format
         Date tempDate = null;
         try {
@@ -81,6 +87,15 @@ public class Item {
         }
 
 
+    }
+    */
+
+
+    private LocalDate changeStringToDate(String dateString){
+
+        LocalDateStringConverter date = new LocalDateStringConverter();
+
+        return date.fromString(dateString);
     }
 
 
