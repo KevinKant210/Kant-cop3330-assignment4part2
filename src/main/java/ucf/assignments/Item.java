@@ -1,20 +1,30 @@
 package ucf.assignments;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Item {
 
-     //private String Description;
-     private Date dueDate;
-    // private boolean isComplete = false;
+     private String Description;
 
+     private Date dueDate;
+
+
+     private boolean isComplete;
+
+    {
+        isComplete = false;
+    }
 
 
     public Item(String UserdueDate, String UserDescription){
         // Change UserDueDate from string to a Date object
         //set class Variable dueDate to user param
         //set Description to user description
+        Description = UserDescription;
 
+        dueDate = changeStringToDate(UserdueDate);
 
     }
 
@@ -22,15 +32,21 @@ public class Item {
     void setDescription(String newDescription){
         //set description to new description
 
+        Description = newDescription;
+
     }
 
-    void setDue(Date newDueDate){
+    void setDue(String newDueDate){
         //set dueDate to new DueDate
 
+
+        dueDate = changeStringToDate(newDueDate);
     }
 
     void setComplete(boolean newCompleteVal){
         //set isCompelte to new complete val
+
+        isComplete = newCompleteVal;
 
     }
 
@@ -42,24 +58,29 @@ public class Item {
 
     String getDescription(){
         //return descrption lo'
-        return "Holder";
+        return Description;
     }
 
     Boolean getCompletion(){
-        return false;
+        return isComplete;
     }
 
-    private Date StringToDate(String Date){
-        //change a string into the date format using date class
 
-        //holder for what would be a returned date type
-        return dueDate;
-    }
 
     private Date changeStringToDate(String dateString){
         //take string and put it in date format
+        Date tempDate = null;
+        try {
+            tempDate = new SimpleDateFormat("MM/dd/yyyy").parse(dateString);
 
-        return new Date();
+            return tempDate;
+        } catch (ParseException e) {
+
+            e.printStackTrace();
+            return null;
+        }
+
+
     }
 
 

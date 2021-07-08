@@ -4,28 +4,43 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ToDoList {
-   // private String Title;
+    private String title;
 
-  //  private ArrayList<Item> ItemHolder = new ArrayList<>();
+    private ArrayList<Item> itemHolder;
 
-
-    private int numItems = 0;
-
-    public ToDoList(String UserTitle){
-        //set Title to user title
+    {
+        itemHolder = new ArrayList<>();
     }
 
-    public void addItem(String ItemDescription, String ItemDueDate){
+
+    private int numItems;
+
+    {
+        numItems = 0;
+    }
+
+    public ToDoList(String userTitle){
+        //set Title to user title
+        title = userTitle;
+    }
+
+    public void addItem(String itemDescription, String itemDueDate){
+
         //construct item object with itemDescription and ItemDueDate Param
             //Item newitem = new Item(ItemDescription,ItemdueDate)
-
+        Item newItem = new Item(itemDueDate,itemDescription);
         //Add the newly constructed Item to itemholder arraylist
             //itemholder.add(newitem)
+        itemHolder.add(newItem);
     }
 
-    public boolean deleteItem(Item CurrItem){
+    public boolean deleteItem(Item currItem){
         //search for reference to CurrItem in ItemHolder ArrayList
         //if found delete it and return true
+        if(itemHolder.contains(currItem)){
+            itemHolder.remove(currItem);
+            return true;
+        }
         //else return false
         return false;
     }
@@ -34,45 +49,56 @@ public class ToDoList {
 
     public ArrayList<Item> displayAllItems(){
         //returns the ItemHolder Array list
-        return new ArrayList<>();
+        return itemHolder;
     }
 
 
 
     public ArrayList<Item> displayCompeleteItems(){
         //generate new arraylist since I cant return a literal here i will return an empty arraylist
-        ArrayList<Item> completeItemHolder = new ArrayList<>();
-        //for item in itemholder
-            //if item.getComplete returns false add it to new arraylist
 
-        return new ArrayList<>();
+        ArrayList<Item> completeItemHolder = new ArrayList<>();
+
+        //for item in itemholder
+            //if item.getComplete returns false add it to new arraylist\
+
+        for(Item item: itemHolder){
+            if(item.getCompletion()){
+                completeItemHolder.add(item);
+            }
+        }
+
+        return completeItemHolder;
     }
 
     public ArrayList<Item> displayIncompelteItems(){
         //generate temp arraylist
-       // ArrayList<Item> incompleteItemHolder = new ArrayList<>();
+        ArrayList<Item> incompleteItemHolder = new ArrayList<>();
         //for (item in itemholder)
             //if item.getcomplete is true
                 //add it to new arraylists
 
-        return new ArrayList<>();
+        for(Item item: itemHolder){
+            if(!item.getCompletion()){
+                incompleteItemHolder.add(item);
+            }
+        }
+
+        return incompleteItemHolder;
     }
 
     public String getTitle(){
         //fetch title of the ToDoList
 
-        return "title";
+        return title;
     }
 
-    public Item getItem(Item requestedItem){
-        //for items in item
-        //if(item == requestedItem) return item
-        return new Item("date","description");
-    }
 
-    public void setTitle(String NewTitle){
+
+    public void setTitle(String newTitle){
         //this.title = newtitle;
 
+        title = newTitle;
     }
 
     public int getNumItems() {
@@ -83,6 +109,7 @@ public class ToDoList {
     public void setNumItems(int numItems) {
         //also auto genned
        // this.numItems = numItems;
+        this.numItems = numItems;
     }
 
 
