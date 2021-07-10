@@ -13,10 +13,10 @@ public class Item {
      private LocalDate date;
 
 
-     private boolean iscomplete;
+     private boolean complete;
 
     {
-        iscomplete = false;
+        complete = false;
     }
 
 
@@ -42,17 +42,17 @@ public class Item {
 
     }
 
-    void setDue(String newDueDate){
+    void setDue(LocalDate newDueDate){
         //set dueDate to new DueDate
 
 
-        date = changeStringToDate(newDueDate);
+        date = newDueDate;
     }
 
-    void setIscomplete(boolean newCompleteVal){
+    void setComplete(boolean newCompleteVal){
         //set isCompelte to new complete val
 
-        iscomplete = newCompleteVal;
+        complete = newCompleteVal;
 
     }
 
@@ -67,8 +67,8 @@ public class Item {
         return description;
     }
 
-    public Boolean getCompletion(){
-        return iscomplete;
+    public Boolean getComplete(){
+        return complete;
     }
 
 

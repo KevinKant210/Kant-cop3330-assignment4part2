@@ -66,9 +66,9 @@ public class LoadFile {
 
 
 
-       Item tempItem = new Item(new LocalDateStringConverter().fromString(itemInfo[1].toString()),itemInfo[0]);
+       Item tempItem = new Item(new LocalDateStringConverter().fromString(itemInfo[1]),itemInfo[0]);
        //set the isComplete boolean properly
-       tempItem.setIscomplete(Boolean.getBoolean(itemInfo[2]));
+       tempItem.setComplete(Boolean.getBoolean(itemInfo[2]));
        //return the item
        return tempItem;
    }

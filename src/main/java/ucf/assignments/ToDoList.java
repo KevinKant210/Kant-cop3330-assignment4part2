@@ -67,7 +67,7 @@ public class ToDoList {
             //if item.getComplete returns false add it to new arraylist\
 
         for(Item item: itemHolder){
-            if(item.getCompletion()){
+            if(item.getComplete()){
                 completeItemHolder.add(item);
             }
         }
@@ -83,7 +83,7 @@ public class ToDoList {
                 //add it to new arraylists
 
         for(Item item: itemHolder){
-            if(!item.getCompletion()){
+            if(!item.getComplete()){
                 incompleteItemHolder.add(item);
             }
         }

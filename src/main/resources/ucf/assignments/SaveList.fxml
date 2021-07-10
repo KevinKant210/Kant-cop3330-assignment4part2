@@ -7,16 +7,24 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.SaveListController">
-   <TextField fx:id="FileLocationTextField" layoutX="141.0" layoutY="188.0" onAction="#FileLocationEntered" />
-   <Button fx:id="BrowseButton" layoutX="172.0" layoutY="230.0" mnemonicParsing="false" onAction="#BrowseForFile" prefHeight="40.0" prefWidth="88.0" text="Browse">
+   <TextField fx:id="FileLocationTextField" layoutX="142.0" layoutY="133.0" onAction="#FileLocationEntered" />
+   <Button fx:id="BrowseButton" layoutX="172.0" layoutY="256.0" mnemonicParsing="false" onAction="#BrowseForFile" prefHeight="40.0" prefWidth="88.0" text="Browse">
       <font>
          <Font size="19.0" />
       </font>
    </Button>
-   <Text layoutX="142.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Location">
+   <Text layoutX="134.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Location">
       <font>
          <Font size="30.0" />
       </font>
    </Text>
-   <Button fx:id="SaveButton" layoutX="195.0" layoutY="347.0" mnemonicParsing="false" onAction="#SubmitDataSaveButton" text="Save" />
+   <Button fx:id="SaveButton" layoutX="175.0" layoutY="326.0" mnemonicParsing="false" onAction="#SubmitDataSaveButton" prefHeight="44.0" prefWidth="82.0" text="Save">
+      <font>
+         <Font size="20.0" />
+      </font></Button>
+   <Text layoutX="150.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Name">
+      <font>
+         <Font size="30.0" />
+      </font>
+   </Text>
 </AnchorPane>

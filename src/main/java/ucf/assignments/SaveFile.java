@@ -58,7 +58,7 @@ public class SaveFile {
 
            for(Item item: currList.itemHolder){
 
-               author.write(item.getDescription() + cB + item.getDate().format(format) + cB +  item.getCompletion() + nL);
+               author.write(item.getDescription() + cB + item.getDate().format(format) + cB +  item.getComplete() + nL);
 
            }
 

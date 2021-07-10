@@ -88,12 +88,12 @@ public class ToDoListTest {
         //fill with 20 complete item objects
         for(int i = 0 ; i < 20; i++){
             testList.addItem("testItem",Item.changeStringToDate("02/22/2019"));
-            testList.itemHolder.get(i).setIscomplete(true);
+            testList.itemHolder.get(i).setComplete(true);
         }
         //fill with 30 incomplete item objects
         for(int i = 20 ; i < 50; i++){
             testList.addItem("testItem",Item.changeStringToDate("02/22/2019"));
-            testList.itemHolder.get(i).setIscomplete(false);
+            testList.itemHolder.get(i).setComplete(false);
         }
         //Assertequals(testObj.displayIncomplete.size, 30)
 
@@ -110,12 +110,12 @@ public class ToDoListTest {
         //fill with 50 complete item objects
         for(int i = 0 ; i < 50; i++){
             testList.addItem("item",Item.changeStringToDate("02/22/2019"));
-            testList.itemHolder.get(i).setIscomplete(true);
+            testList.itemHolder.get(i).setComplete(true);
         }
         //fill with 20 incomplete item objects
         for(int i = 50 ; i < 70; i++){
             testList.addItem("item",Item.changeStringToDate("02/22/2019"));
-            testList.itemHolder.get(i).setIscomplete(false);
+            testList.itemHolder.get(i).setComplete(false);
         }
         //AssertEquals(testObj.displayComplete.size, 50)
 

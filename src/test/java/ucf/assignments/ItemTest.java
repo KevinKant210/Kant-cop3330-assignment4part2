@@ -34,7 +34,8 @@ public class ItemTest {
         //create Test Item with (InitiailTestDate,TestDescription)
         Item testItem = new Item(Item.changeStringToDate("02/21/2019"),"testDescription");
         //User Item Set method to change description to FinalDate
-        testItem.setDue("12/12/1999");
+
+        testItem.setDue(new LocalDateStringConverter().fromString("12/12/1999"));
 
         LocalDate testDate = new LocalDateStringConverter().fromString("12/12/1999");
 
@@ -56,10 +57,10 @@ public class ItemTest {
         //isComplete is initialized to false
         Item testItem = new Item(Item.changeStringToDate("02/21/2019"),"testDescription");
         //call testItem is compelte method to change it to true
-        testItem.setIscomplete(true);
+        testItem.setComplete(true);
         //assertTrue (testItem.getIsComplete)
 
-        assertTrue(testItem.getCompletion());
+        assertTrue(testItem.getComplete());
     }
 
 

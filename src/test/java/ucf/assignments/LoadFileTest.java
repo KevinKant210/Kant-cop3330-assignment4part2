@@ -95,7 +95,7 @@ public class LoadFileTest {
 
         boolean isRight = true;
         for(Item item : newList.itemHolder){
-            if(item.getCompletion()){
+            if(item.getComplete()){
                 isRight = false;
             }
         }
