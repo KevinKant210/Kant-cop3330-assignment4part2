@@ -71,7 +71,7 @@ public class LoadFileTest {
 
 
         for(Item item : newList.itemHolder){
-            if (item.getDue().compareTo(testDate) != 0) {
+            if (item.getDate().compareTo(testDate) != 0) {
                 isRight = false;
                 break;
             }

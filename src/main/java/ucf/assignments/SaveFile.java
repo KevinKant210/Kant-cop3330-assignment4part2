@@ -1,11 +1,9 @@
 package ucf.assignments;
 
-import javax.swing.text.DateFormatter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class SaveFile {
 
@@ -60,7 +58,7 @@ public class SaveFile {
 
            for(Item item: currList.itemHolder){
 
-               author.write(item.getDescription() + cB + item.getDue().format(format) + cB +  item.getCompletion() + nL);
+               author.write(item.getDescription() + cB + item.getDate().format(format) + cB +  item.getCompletion() + nL);
 
            }
 

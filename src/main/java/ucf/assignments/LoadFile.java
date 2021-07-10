@@ -1,8 +1,9 @@
 package ucf.assignments;
 
+import javafx.util.converter.LocalDateStringConverter;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LoadFile {
@@ -65,9 +66,9 @@ public class LoadFile {
 
 
 
-       Item tempItem = new Item(itemInfo[1],itemInfo[0]);
+       Item tempItem = new Item(new LocalDateStringConverter().fromString(itemInfo[1].toString()),itemInfo[0]);
        //set the isComplete boolean properly
-       tempItem.setComplete(Boolean.getBoolean(itemInfo[2]));
+       tempItem.setIscomplete(Boolean.getBoolean(itemInfo[2]));
        //return the item
        return tempItem;
    }

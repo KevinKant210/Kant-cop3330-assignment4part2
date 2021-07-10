@@ -14,7 +14,7 @@
 <AnchorPane prefHeight="563.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ListWindowController">
    <HBox layoutX="-3.0" layoutY="-6.0" prefHeight="107.0" prefWidth="867.0">
       <children>
-         <Text fx:id="ListTitleText" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="318.32421875">
+         <Text fx:id="ListTitleText" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="304.32421875">
             <font>
                <Font size="48.0" />
             </font>
@@ -45,6 +45,11 @@
          <Button mnemonicParsing="false" text="Clear List">
             <HBox.margin>
                <Insets left="10.0" top="50.0" />
+            </HBox.margin>
+         </Button>
+         <Button fx:id="ChangeTitleButton" mnemonicParsing="false" onAction="#ChangeTitleButtonClicked" text="Change Title">
+            <HBox.margin>
+               <Insets left="5.0" top="50.0" />
             </HBox.margin>
          </Button>
       </children>

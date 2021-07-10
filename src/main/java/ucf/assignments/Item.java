@@ -1,41 +1,32 @@
 package ucf.assignments;
 
 import javafx.util.converter.LocalDateStringConverter;
-import javafx.util.converter.LocalDateTimeStringConverter;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.format.FormatStyle;
-import java.util.Date;
 import java.time.*;
-import java.util.Formatter;
 
 public class Item {
 
-     private String Description;
+     private String description;
 
     // private Date dueDate;
 
-     private LocalDate dueDate;
+     private LocalDate date;
 
 
-     private boolean isComplete;
+     private boolean iscomplete;
 
     {
-        isComplete = false;
+        iscomplete = false;
     }
 
 
-    public Item(String UserdueDate, String UserDescription){
+    public Item(LocalDate UserdueDate, String UserDescription){
         // Change UserDueDate from string to a Date object
         //set class Variable dueDate to user param
         //set Description to user description
-        Description = UserDescription;
+        description = UserDescription;
 
-        dueDate = changeStringToDate(UserdueDate);
+        date = UserdueDate;
 
 
 
@@ -47,7 +38,7 @@ public class Item {
     void setDescription(String newDescription){
         //set description to new description
 
-        Description = newDescription;
+        description = newDescription;
 
     }
 
@@ -55,29 +46,29 @@ public class Item {
         //set dueDate to new DueDate
 
 
-        dueDate = changeStringToDate(newDueDate);
+        date = changeStringToDate(newDueDate);
     }
 
-    void setComplete(boolean newCompleteVal){
+    void setIscomplete(boolean newCompleteVal){
         //set isCompelte to new complete val
 
-        isComplete = newCompleteVal;
+        iscomplete = newCompleteVal;
 
     }
 
-    LocalDate getDue(){
+    public LocalDate getDate(){
        //could not return a literal for a return type of date sorry
 
-        return dueDate;
+        return date;
     }
 
-    String getDescription(){
+    public String getDescription(){
         //return descrption lo'
-        return Description;
+        return description;
     }
 
-    Boolean getCompletion(){
-        return isComplete;
+    public Boolean getCompletion(){
+        return iscomplete;
     }
 
 
@@ -100,7 +91,7 @@ public class Item {
     */
 
 
-    private LocalDate changeStringToDate(String dateString){
+    public static LocalDate changeStringToDate(String dateString){
 
 
 

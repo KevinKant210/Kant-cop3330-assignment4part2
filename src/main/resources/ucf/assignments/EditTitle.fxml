@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.EditTitleController">
+   <children>
+      <TextField fx:id="NewTitleTextField" layoutX="48.0" layoutY="188.0" prefHeight="25.0" prefWidth="269.0" />
+      <Button fx:id="SetTitleButton" layoutX="341.0" layoutY="188.0" mnemonicParsing="false" onAction="#SetTitleButtonClicked" prefHeight="25.0" prefWidth="70.0" text="Set Title" />
+   </children>
+</AnchorPane>

@@ -17,7 +17,7 @@ public class SaveFileTest {
         ToDoList testList = new ToDoList("List Name");
 
         for(int i = 0 ; i < 5 ; i ++){
-            testList.addItem("Test Description","01/02/2003");
+            testList.addItem("Test Description",Item.changeStringToDate("01/02/2003"));
         }
 
         SaveFile fileSaver = new SaveFile(folderPath,"testdoc",testList);

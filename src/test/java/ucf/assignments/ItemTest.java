@@ -3,10 +3,7 @@ package ucf.assignments;
 import javafx.util.converter.LocalDateStringConverter;
 import org.junit.jupiter.api.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +15,7 @@ public class ItemTest {
 
         //create Test Item with (TestDate,InitiailTestDescription)
 
-        Item testItem = new Item("02/21/2019","testDescription");
+        Item testItem = new Item(Item.changeStringToDate("02/21/2019"),"testDescription");
 
         //User Item Set method to change description to FinalTestDescription
 
@@ -35,7 +32,7 @@ public class ItemTest {
         //GUI calls the set method for dueDate encapsulated by the item obj
 
         //create Test Item with (InitiailTestDate,TestDescription)
-        Item testItem = new Item("02/21/2019","testDescription");
+        Item testItem = new Item(Item.changeStringToDate("02/21/2019"),"testDescription");
         //User Item Set method to change description to FinalDate
         testItem.setDue("12/12/1999");
 
@@ -46,7 +43,7 @@ public class ItemTest {
 
 
 
-        assertEquals(testItem.getDue().toString(),testDate.toString());
+        assertEquals(testItem.getDate().toString(),testDate.toString());
 
 
     }
@@ -57,9 +54,9 @@ public class ItemTest {
 
         //createTestItem Object (TestDate,TestDescription)
         //isComplete is initialized to false
-        Item testItem = new Item("02/21/2019","testDescription");
+        Item testItem = new Item(Item.changeStringToDate("02/21/2019"),"testDescription");
         //call testItem is compelte method to change it to true
-        testItem.setComplete(true);
+        testItem.setIscomplete(true);
         //assertTrue (testItem.getIsComplete)
 
         assertTrue(testItem.getCompletion());

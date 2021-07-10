@@ -1,5 +1,6 @@
 package ucf.assignments;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -20,7 +21,7 @@ public class ToDoList {
         title = userTitle;
     }
 
-    public void addItem(String itemDescription, String itemDueDate){
+    public void addItem(String itemDescription, LocalDate itemDueDate){
 
         //construct item object with itemDescription and ItemDueDate Param
             //Item newitem = new Item(ItemDescription,ItemdueDate)
@@ -106,7 +107,7 @@ public class ToDoList {
 
     public void sortDate(){
 
-       Comparator<Item> dateCompare = (Comparator<Item>) (o1, o2) -> o1.getDue().compareTo(o2.getDue());
+       Comparator<Item> dateCompare = (Comparator<Item>) (o1, o2) -> o1.getDate().compareTo(o2.getDate());
 
        itemHolder.sort(dateCompare);
 

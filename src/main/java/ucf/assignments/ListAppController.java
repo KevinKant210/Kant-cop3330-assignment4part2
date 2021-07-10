@@ -1,6 +1,7 @@
 package ucf.assignments;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,14 +30,18 @@ public class ListAppController {
 
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("ListWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader (getClass().getResource("ListWindow.fxml"));
+            root = loader.load();
+
+            ListWindowController controller = loader.getController();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         Stage stage = new Stage();
         Scene scene = new Scene(root);
-        stage.setTitle("New List");
+        stage.setTitle("List Manager");
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
