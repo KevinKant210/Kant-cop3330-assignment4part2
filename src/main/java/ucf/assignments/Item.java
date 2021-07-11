@@ -1,4 +1,13 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
+
+
 
 import javafx.util.converter.LocalDateStringConverter;
 
@@ -72,25 +81,9 @@ public class Item {
     }
 
 
-        /*
-    private Date hangeStringToDate(String dateString){
-        //take string and put it in date format
-        Date tempDate = null;
-        try {
-            tempDate = new SimpleDateFormat("MM/dd/yyyy").parse(dateString);
-
-            return tempDate;
-        } catch (ParseException e) {
-
-            e.printStackTrace();
-            return null;
-        }
 
 
-    }
-    */
-
-
+    //utility function for testing to make life easier
     public static LocalDate changeStringToDate(String dateString){
 
 
@@ -101,6 +94,8 @@ public class Item {
 
         return date.fromString(dateString);
     }
+
+
 
 
 

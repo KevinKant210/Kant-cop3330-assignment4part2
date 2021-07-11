@@ -1,7 +1,14 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,20 +35,17 @@ public class ListAppController {
 
         //Pass it the new ToDoList Obj
 
+
         Parent root = null;
         try {
-            FXMLLoader loader = new FXMLLoader (getClass().getResource("ListWindow.fxml"));
-            root = loader.load();
-
-            ListWindowController controller = loader.getController();
-
+            root = FXMLLoader.load(getClass().getResource("ListWindow.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         Stage stage = new Stage();
         Scene scene = new Scene(root);
-        stage.setTitle("List Manager");
+        stage.setTitle("List Window");
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();

@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import javafx.event.ActionEvent;
@@ -31,6 +38,8 @@ public class ErrorScreenController {
     }
 
     public static void generateError(String ErrorDescription){
+
+        //summon error screen with a description
         Parent root = null;
         try {
             FXMLLoader loader = new  FXMLLoader (ErrorScreenController.class.getResource("ErrorScreen.fxml"));
@@ -51,7 +60,7 @@ public class ErrorScreenController {
     }
 
     public void OkButtonClicked(ActionEvent actionEvent) {
-
+        //close the screen
         Stage stage = (Stage) OkButton.getScene().getWindow();
         stage.close();
     }

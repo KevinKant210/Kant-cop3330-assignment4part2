@@ -1,10 +1,17 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import javafx.util.converter.LocalDateStringConverter;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.Random;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -129,7 +136,7 @@ public class ToDoListTest {
         //create test ToDoList testObj
         ToDoList testList = new ToDoList("title");
         //fill it with random Items\
-        Random rand = new Random();
+
         testList.addItem("description",Item.changeStringToDate("12/25/1999"));
 
         testList.addItem("description",Item.changeStringToDate("12/20/1999"));

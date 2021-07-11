@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import javafx.event.ActionEvent;
@@ -14,7 +21,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 public class ListWindowController {
 
@@ -25,9 +32,9 @@ public class ListWindowController {
     //Backend Vars
     private ToDoList currList;
 
-    private String newDescription;
 
-    private Date NewDate;
+
+
 
     //FXML Vars
     @FXML
@@ -76,38 +83,15 @@ public class ListWindowController {
 
         currList = new ToDoList("New List");
 
-        System.out.println("I ran");
+        ListTitleText.setText(currList.getTitle());
+
+
     }
 
 
 
 
-    //dont need
-    public void DescriptionChanged(TableColumn.CellEditEvent cellEditEvent) {
 
-        //on event check new description to ensure it doesnt break laws
-        //if doesnt change description
-        //else error window
-
-    }
-
-    //dont need
-    public void DueDateChanged(TableColumn.CellEditEvent cellEditEvent) {
-        //on event enssure new date does break format
-        //if doesnt change due date
-        //else error window
-    }
-
-    //dont need
-    public void IsCompleteChanged(TableColumn.CellEditEvent cellEditEvent) {
-        //when they mark complete call the item.markcomplete method for item
-    }
-
-    
-    //dont need clean up
-    public void NewDateEntered(ActionEvent actionEvent) {
-        //hold onto new date entered
-    }
 
     public void AddItemButtonClicked(ActionEvent actionEvent) {
 
@@ -120,6 +104,11 @@ public class ListWindowController {
         //ensure the inputs are both valid inputs
         if(NewDescriptionTextField.getText().isEmpty()){
             ErrorScreenController.generateError("Please Fill In Description");
+            return;
+        }
+
+        if(NewDescriptionTextField.getText().length() > 256){
+            ErrorScreenController.generateError("Please Keep Descriptions less then 256 characters");
             return;
         }
             //if not error window
@@ -169,16 +158,11 @@ public class ListWindowController {
         stage.show();
     }
 
-        //dont need clean up
 
-    public void NewDescriptionTextFieldChanged(ActionEvent actionEvent) {
-        //ensure new description is valid else throw error window
-
-        //hold onto newDescription
-
-    }
 
     public void ChangeTitleButtonClicked(ActionEvent actionEvent) {
+
+        //open change title window
         Parent root = null;
         try {
             FXMLLoader loader = new FXMLLoader (getClass().getResource("EditTitle.fxml"));
@@ -203,8 +187,9 @@ public class ListWindowController {
 
 
     public void MarkCompleteButtonClicked(ActionEvent actionEvent) {
+        //grab item from table
         Item temp = ItemsTable.getSelectionModel().getSelectedItem();
-
+        //change Complete value
         temp.setComplete(true);
 
 
@@ -212,12 +197,20 @@ public class ListWindowController {
     }
 
     public void EditItemButtonClicked(ActionEvent actionEvent) {
+
+        //grab item from table
         Item temp = ItemsTable.getSelectionModel().getSelectedItem();
 
+        //validate input change
         if(NewDatePicker.getValue() != null){
             temp.setDue(NewDatePicker.getValue());
             NewDatePicker.getEditor().clear();
             NewDatePicker.setValue(null);
+        }
+
+        if(NewDescriptionTextField.getText().length() > 256){
+            ErrorScreenController.generateError("Please Keep Descriptions less then 256 characters");
+            return;
         }
 
         if(!NewDescriptionTextField.getText().isEmpty()){
@@ -226,11 +219,18 @@ public class ListWindowController {
         }
 
 
+        //change item values to new values
+
         ItemsTable.refresh();
     }
 
     public void DIsplayAllButtonClicked(ActionEvent actionEvent) {
+
+        //empty the table
+
         ItemsTable.getItems().clear();
+
+        //add ALL items in currlist
         for(Item item: currList.itemHolder){
             ItemsTable.getItems().add(item);
         }
@@ -239,7 +239,10 @@ public class ListWindowController {
     }
 
     public void DisplayCompleteButtonClicked(ActionEvent actionEvent) {
+        //empty current table
         ItemsTable.getItems().clear();
+
+        //add all items with Complete = true
         for(Item item: currList.itemHolder){
             if(item.getComplete()){
                 ItemsTable.getItems().add(item);
@@ -250,8 +253,10 @@ public class ListWindowController {
 
     public void DsiplayIncompleteClicked(ActionEvent actionEvent) {
 
+        //empty table
         ItemsTable.getItems().clear();
 
+        //add all items where Completed = false
         for(Item item: currList.itemHolder){
             if(!item.getComplete()){
                 ItemsTable.getItems().add(item);
@@ -262,8 +267,11 @@ public class ListWindowController {
     }
 
     public void ClearListButtonClicked(ActionEvent actionEvent) {
+
+        //clear table
         ItemsTable.getItems().clear();
 
+        //clear currlist
         for(Item item: currList.itemHolder){
             currList.deleteItem(item);
         }

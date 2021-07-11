@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import javafx.event.ActionEvent;
@@ -45,16 +52,9 @@ public class SaveListController {
 
     //private String UserPath;
 
-    // dont need
-    public void FileLocationEntered(ActionEvent actionEvent) {
-        //grab the file location from the text field and set it to the userpath string
-    }
 
-    //dontneed
-    public void FileNameEntered(ActionEvent actionEvent) {
-        //get filename from the text field and set it to filename variable
 
-    }
+
 
     public void BrowseForFile(ActionEvent actionEvent) {
         //open up the native file explorer and once done browsing set the text field to that value

@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import java.io.File;
@@ -9,15 +16,11 @@ public class SaveFile {
 
      private File file;
 
-     private String fileName;
+     private final String fileName;
 
-     private String filePath;
+     private final String filePath;
 
-     private ToDoList currList;
-
-     private final String nL = "\n";
-     private final String cB = ",";
-
+     private final ToDoList currList;
 
 
     public SaveFile(String filePath,String fileName,ToDoList currList){
@@ -54,10 +57,12 @@ public class SaveFile {
         try {
            author = new FileWriter(file);
 
-           author.write(currList.getTitle()+nL);
+            String nL = "\n";
+            author.write(currList.getTitle()+ nL);
 
            for(Item item: currList.itemHolder){
 
+               String cB = ",";
                author.write(item.getDescription() + cB + item.getDate().format(format) + cB +  item.getComplete() + nL);
 
            }
@@ -94,6 +99,7 @@ public class SaveFile {
 
     }
 
+    //used to make testing automated
     public void deleteFile(){
         file.delete();
     }

@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import javafx.event.ActionEvent;
@@ -28,6 +35,10 @@ public class EditTitleController {
     private String newTitle;
 
     public void SetTitleButtonClicked(ActionEvent actionEvent) {
+        //grab user input
+        //change List title
+        //change name text
+        //close screen
         setNewTitle(NewTitleTextField.getText());
 
         if(newTitle.isEmpty()){

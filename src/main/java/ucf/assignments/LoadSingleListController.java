@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import javafx.event.ActionEvent;
@@ -47,9 +54,7 @@ public class LoadSingleListController {
 
     }
 
-    public void ListNameInputted(ActionEvent actionEvent) {
 
-    }
 
     public void LoadSingleListButtonClicked(ActionEvent actionEvent) {
         //grab list name from ListName Text Field
@@ -57,7 +62,7 @@ public class LoadSingleListController {
 
         LoadFile fileLoader = new LoadFile(userFile.getAbsolutePath());
 
-
+        //open up list window and set currList to loaded list
         Parent root = null;
         ListWindowController controller;
 

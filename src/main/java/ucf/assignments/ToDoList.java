@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import java.time.LocalDate;
@@ -38,15 +45,16 @@ public class ToDoList {
 
     }
 
-    public boolean deleteItem(Item currItem){
-        //search for reference to CurrItem in ItemHolder ArrayList
-        //if found delete it and return true
-        if(itemHolder.contains(currItem)){
+
+    public void deleteItem(Item currItem){
+
+        //delete given item
+
             itemHolder.remove(currItem);
-            return true;
-        }
-        //else return false
-        return false;
+
+
+
+
     }
 
 
@@ -105,9 +113,11 @@ public class ToDoList {
         title = newTitle;
     }
 
+
+    //deprecated cause table view does this for us but no reason taking out
     public void sortDate(){
 
-       Comparator<Item> dateCompare = (Comparator<Item>) (o1, o2) -> o1.getDate().compareTo(o2.getDate());
+       Comparator<Item> dateCompare = (o1, o2) -> o1.getDate().compareTo(o2.getDate());
 
        itemHolder.sort(dateCompare);
 

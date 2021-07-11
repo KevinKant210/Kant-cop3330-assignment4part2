@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  UCF COP3330 Summer 2021 Assignment 4 Solution
+ *  *  Copyright 2021 Kevin Kant
+ *
+ */
+
 package ucf.assignments;
 
 import javafx.util.converter.LocalDateStringConverter;
@@ -8,7 +15,7 @@ import java.util.Scanner;
 
 public class LoadFile {
 
-    private File file;
+    private final File file;
 
 
 
